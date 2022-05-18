@@ -1,0 +1,6 @@
+-   id: rdf-toolkit-normalizer
+    name: RDF Toolkit Normalizer
+    language: docker_image
+    entry: docker.io/kchason/rdf-toolkit-normalizer:latest
+    types: [file] 
+    files: \.(ttl)$

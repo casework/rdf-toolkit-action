@@ -1,0 +1,18 @@
+# action.yml
+name: 'RDF Toolkit Normalizer'
+description: 'Normalizes RDF files utilizing rdf-toolkit.jar'
+inputs:
+  input-file:
+    description: 'The path to the file to be normalized'
+    required: true
+    default: 'input.ttl'
+  output-file:
+    description: 'The desired filename for the resulting normalized file'
+    required: true
+    default: 'normalized.ttl'
+runs:
+  using: 'docker'
+  image: 'docker://kchason/rdf-toolkit:0.1.0'
+  env:
+    INPUT_TTL_FILE: ${{ inputs.input-file }}
+    OUTPUT_TTL_FILE: ${{ inputs.output-file }}
