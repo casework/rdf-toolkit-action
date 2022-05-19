@@ -12,7 +12,7 @@ inputs:
     default: 'normalized.ttl'
 runs:
   using: 'docker'
-  image: 'docker://kchason/rdf-toolkit:0.1.0'
+  image: 'docker://kchason/rdf-toolkit-normalizer:latest'
   env:
     INPUT_TTL_FILE: ${{ inputs.input-file }}
     OUTPUT_TTL_FILE: ${{ inputs.output-file }}
