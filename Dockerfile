@@ -3,6 +3,7 @@ FROM openjdk:19-slim-buster
 WORKDIR /opt/workdir/
 
 # Ensure the expected environment variables exist
+# TODO need to account for a directory mounted at /src per documentation at https://pre-commit.com/#docker
 ENV INPUT_TTL_FILE "input.ttl"
 ENV OUTPUT_TTL_FILE "normalized.ttl"
 

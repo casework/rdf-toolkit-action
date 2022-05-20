@@ -1,6 +1,7 @@
 -   id: rdf-toolkit-normalizer
     name: RDF Toolkit Normalizer
-    language: docker_image
-    entry: docker.io/kchason/rdf-toolkit-normalizer:latest
+    description: confirms TTL files are normalized.
+    entry: rdf-toolkit-normalizer
+    language: python
     types: [file] 
     files: \.(ttl)$
