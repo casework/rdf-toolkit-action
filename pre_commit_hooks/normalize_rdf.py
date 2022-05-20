@@ -1,5 +1,4 @@
 import argparse
-import filecmp
 import subprocess
 import urllib.request
 
@@ -22,17 +21,19 @@ def is_normalized(filename: str) -> bool:
     """
     Determines if the provided ttl file is normalized as defined by rdf-toolkit.jar.
     """
+    # Run the normalization in place 
     result = subprocess.run(['java', '-jar', 'rdf-toolkit.jar', 
                                 '--infer-base-iri', 
                                 '--inline-blank-nodes',
                                 '--source', filename,
                                 '--source-format', 'turtle',
-                                '--target', filename + '.check',
+                                '--target', filename,
                                 '--target-format', 'turtle'], 
                                 stdout=subprocess.PIPE)
+
+    # return retval
+    return result.returncode == 0
     
-    # Compare the original and the output file
-    return result.returncode == 0 and filecmp.cmp(filename, filename + '.check', shallow=False)
 
 def main(argv: Sequence[str] | None = None) -> int:
     """

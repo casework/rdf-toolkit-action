@@ -9,7 +9,6 @@ TODO
 ### pre-commit Hook
 _This documentation assumes you already have `pre-commit` installed in your repository. Installation and basic usage instructions for `pre-commit` are available at [https://pre-commit.com/#install](https://pre-commit.com/#install)_
 
-
 In your `.pre-commit-config.yaml` file, add the following under the `repos` key:
 
 ```yaml
