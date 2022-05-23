@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-java -jar rdf-toolkit.jar \
+java -jar /opt/workspace/rdf-toolkit.jar \
   --infer-base-iri \
   --inline-blank-nodes \
   --source "${INPUT_TTL_FILE}" \
