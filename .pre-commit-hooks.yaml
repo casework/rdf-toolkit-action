@@ -4,4 +4,4 @@
     entry: rdf-toolkit-normalizer
     language: python
     types: [file] 
-    files: \.(ttl)$
+    files: \.ttl$

@@ -17,7 +17,8 @@ repos:
     rev: v0.1.0
     hooks:
     -   id: rdf-toolkit-normalizer
-        args: ['--autofix']
+        args:
+            - --autofix
 ```
 
 ### Docker
