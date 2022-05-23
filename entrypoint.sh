@@ -5,5 +5,8 @@ java -jar rdf-toolkit.jar \
   --inline-blank-nodes \
   --source "${INPUT_TTL_FILE}" \
   --source-format turtle \
-  --target "${OUTPUT_TTL_FILE}" \
+  --target "${INPUT_TTL_FILE}.normalized" \
   --target-format turtle
+
+# Set the output for the job
+echo "::set-output name=output-file::${INPUT_TTL_FILE}.normalized"

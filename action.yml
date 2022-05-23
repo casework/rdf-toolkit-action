@@ -6,13 +6,11 @@ inputs:
     description: 'The path to the file to be normalized'
     required: true
     default: 'input.ttl'
+outputs:
   output-file:
-    description: 'The desired filename for the resulting normalized file'
-    required: true
-    default: 'normalized.ttl'
+    description: 'The filename for the resulting normalized file. If the provided input is not a valid graph, this file will be empty'
 runs:
   using: 'docker'
   image: 'docker://kchason/rdf-toolkit-normalizer:latest'
   env:
     INPUT_TTL_FILE: ${{ inputs.input-file }}
-    OUTPUT_TTL_FILE: ${{ inputs.output-file }}
