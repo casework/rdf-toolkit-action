@@ -1,7 +1,6 @@
 import argparse
 import filecmp
 import subprocess
-import sys
 import urllib.request
 
 from os import remove
@@ -18,7 +17,7 @@ def ensure_library() -> None:
         try:
             urllib.request.urlretrieve("https://github.com/trypuz/openfibo/blob/1f9ab415e8ebd131eadcc9b0fc46241adeeb0384/etc/serialization/rdf-toolkit.jar?raw=true", "rdf-toolkit.jar")
         except Exception as e:
-            print(f"Error downloading rdf-toolkit.jar: {e}")
+            print(f'Error downloading rdf-toolkit.jar: {e}')
 
 def is_normalized(filename: str, autofix: bool = False) -> bool:
     """
@@ -61,24 +60,24 @@ def main() -> int:
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to check')
-    parser.add_argument('-a', '--autofix', action="store_true", default=False, help="Whether to automatically format the input file")
-    args = parser.parse_args(sys.argv)
+    parser.add_argument('-a', '--autofix', action='store_true', help='Whether to automatically format the input file')
+    args = parser.parse_args()
 
     # Ensure the library is available
     ensure_library()
 
     if len(args.filenames) == 0:
-        print("Warning: no files found")
+        print('Warning: no files found')
 
     retval = 0
     # Loop through the provided filenames and return 1 if any of them are not normalized
     for filename in args.filenames:
         if filename.endswith('.ttl'):
             if not is_normalized(filename, args.autofix):
-                print(f"Error: {filename} is not normalized")
+                print(f'Error: {filename} is not normalized')
                 retval = 1
         else:
-            print(f"File is not a ttl file and was skipped: {filename}")
+            print(f'File is not a ttl file and was skipped: {filename}')
 
     return retval
 
