@@ -59,8 +59,8 @@ def main() -> int:
     and returns 0 if all are normalized as defined by rdf-toolkit.jar and 1 if any are not.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('filenames', nargs='*', help='Filenames to check')
     parser.add_argument('-a', '--autofix', action='store_true', help='Whether to automatically format the input file')
+    parser.add_argument('filenames', nargs='*', help='Filenames to check')
     args = parser.parse_args()
 
     # Ensure the library is available
