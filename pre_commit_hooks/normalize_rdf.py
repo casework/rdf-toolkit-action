@@ -1,6 +1,7 @@
 import argparse
 import filecmp
 import subprocess
+import sys
 import urllib.request
 
 from os import remove
@@ -37,8 +38,7 @@ def is_normalized(filename: str, autofix: bool = False) -> bool:
     # Determine if the process ran successfully
     if result.returncode == 0:
         # Determine if the files are the same
-        if filecmp.cmp(filename, output_filename, shallow=False):
-            retval = True
+        retval = filecmp.cmp(filename, output_filename, shallow=False)
         
         # Determine if "autofix" is set and copy the normalized file to the 
         if autofix:
@@ -54,7 +54,7 @@ def is_normalized(filename: str, autofix: bool = False) -> bool:
     return retval
     
 
-def main(argv: list = []) -> int:
+def main() -> int:
     """
     The entrypoint for the pre-commit hook. Accepts 1 -> n filenames as positional arguments
     and returns 0 if all are normalized as defined by rdf-toolkit.jar and 1 if any are not.
@@ -62,17 +62,23 @@ def main(argv: list = []) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to check')
     parser.add_argument('-a', '--autofix', action="store_true", default=False, help="Whether to automatically format the input file")
-    args = parser.parse_args(argv)
+    args = parser.parse_args(sys.argv)
 
     # Ensure the library is available
     ensure_library()
 
+    if len(args.filenames) == 0:
+        print("Warning: no files found")
+
     retval = 0
     # Loop through the provided filenames and return 1 if any of them are not normalized
     for filename in args.filenames:
-        if not is_normalized(filename, args.autofix):
-            print(f"Error: {filename} is not normalized")
-            retval = 1
+        if filename.endswith('.ttl'):
+            if not is_normalized(filename, args.autofix):
+                print(f"Error: {filename} is not normalized")
+                retval = 1
+        else:
+            print(f"File is not a ttl file and was skipped: {filename}")
 
     return retval
 
