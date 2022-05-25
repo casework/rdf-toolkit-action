@@ -53,7 +53,7 @@ def is_normalized(filename: str, autofix: bool = False) -> bool:
     return retval
     
 
-def main() -> int:
+def main():
     """
     The entrypoint for the pre-commit hook. Accepts 1 -> n filenames as positional arguments
     and returns 0 if all are normalized as defined by rdf-toolkit.jar and 1 if any are not.
@@ -79,8 +79,8 @@ def main() -> int:
         else:
             print(f'File is not a ttl file and was skipped: {filename}')
 
-    return retval
+    SystemExit(retval)
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    raise main()
