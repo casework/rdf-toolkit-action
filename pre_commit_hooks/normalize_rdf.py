@@ -26,7 +26,6 @@ def is_normalized(filename: str, autofix: bool = False) -> bool:
     # Run the normalization in place 
     output_filename = filename + '.check'
     result = subprocess.run(['java', '-jar', 'rdf-toolkit.jar', 
-                                '--infer-base-iri', 
                                 '--inline-blank-nodes',
                                 '--source', filename,
                                 '--source-format', 'turtle',
