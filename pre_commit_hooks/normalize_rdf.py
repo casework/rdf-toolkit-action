@@ -1,6 +1,8 @@
 import argparse
 import filecmp
+import hashlib
 import subprocess
+import sys
 import urllib.request
 
 from os import remove
@@ -15,9 +17,31 @@ def ensure_library() -> None:
     if not exists('rdf-toolkit.jar'):
         # Download the file
         try:
-            urllib.request.urlretrieve("https://github.com/trypuz/openfibo/blob/1f9ab415e8ebd131eadcc9b0fc46241adeeb0384/etc/serialization/rdf-toolkit.jar?raw=true", "rdf-toolkit.jar")
+            opener = urllib.request.build_opener()
+            # Set the user agent to avoid HTTP/406 error codes
+            opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36')]
+            urllib.request.install_opener(opener)
+            urllib.request.urlretrieve('https://files.caseontology.org/rdf-toolkit-1.11.0.jar', 'rdf-toolkit.jar')
+            # Validate the hash
+            if not check_filehash('rdf-toolkit.jar', 'cff74ca5835cb6c4935c613c901e064b7d166fdcc874e49da5104cf783036b99'):
+                raise Exception('Invalid hash value')
         except Exception as e:
             print(f'Error downloading rdf-toolkit.jar: {e}')
+
+
+def check_filehash(filename: str, expected_hash: str) -> bool:
+    """
+    Checks the hash of a file against an expected value
+    Source: https://stackoverflow.com/questions/22058048/hashing-a-file-in-python
+    """
+    h  = hashlib.sha256()
+    b  = bytearray(128*1024)
+    mv = memoryview(b)
+    with open(filename, 'rb', buffering=0) as f:
+        while n := f.readinto(mv):
+            h.update(mv[:n])
+    return h.hexdigest() == expected_hash
+
 
 def is_normalized(filename: str, autofix: bool = False) -> bool:
     """
@@ -78,7 +102,7 @@ def main():
         else:
             print(f'File is not a ttl file and was skipped: {filename}')
 
-    SystemExit(retval)
+    sys.exit(retval)
 
 
 if __name__ == '__main__':
