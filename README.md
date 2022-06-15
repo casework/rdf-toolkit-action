@@ -1,10 +1,12 @@
 # RDF Toolkit Action
+<a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>
+
 ## Overview
 A GitHub Action, Docker image, and [`pre-commit`](https://pre-commit.com/) hook for normalizing RDF files with `rdf-toolkit.jar`.
 
 ## Usage
 ### GitHub Action
-TODO
+_This capability is expected to be developed in a future release._
 
 ### pre-commit Hook
 _This documentation assumes you already have `pre-commit` installed in your repository. Installation and basic usage instructions for `pre-commit` are available at [https://pre-commit.com/#install](https://pre-commit.com/#install)_
