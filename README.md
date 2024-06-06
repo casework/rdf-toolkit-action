@@ -16,7 +16,7 @@ In your `.pre-commit-config.yaml` file, add the following under the `repos` key:
 ```yaml
 repos:
 -   repo: https://github.com/kchason/rdf-toolkit-action
-    rev: v0.2.0
+    rev: 0.2.0
     hooks:
     -   id: rdf-toolkit-normalizer
         args:
