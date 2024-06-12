@@ -40,3 +40,6 @@ docker run --rm \
 The `rdf-toolkit.jar` tool is obtained from [https://github.com/trypuz/openfibo](https://github.com/trypuz/openfibo).
 
 
+## Licensing
+
+Portions of this repository contributed by NIST are governed by the [NIST Software Licensing Statement](THIRD_PARTY_LICENSES.md#nist-software-licensing-statement).
