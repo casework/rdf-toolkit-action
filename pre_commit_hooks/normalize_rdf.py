@@ -27,13 +27,13 @@ def ensure_library() -> None:
             ]
             urllib.request.install_opener(opener)
             urllib.request.urlretrieve(
-                "https://files.caseontology.org/rdf-toolkit-1.11.0.jar",
+                "https://github.com/edmcouncil/rdf-toolkit/releases/download/v2.0/rdf-toolkit.jar",
                 "rdf-toolkit.jar",
             )
             # Validate the hash
             if not check_filehash(
                 "rdf-toolkit.jar",
-                "cff74ca5835cb6c4935c613c901e064b7d166fdcc874e49da5104cf783036b99",
+                "d9998747e44c018245c8d769abb62e1b3d6b84405d2c456396e18f2e5088b8f1",
             ):
                 raise Exception("Invalid hash value")
         except Exception as e:
