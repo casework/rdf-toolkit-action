@@ -1,0 +1,4 @@
+[submodule "dependencies/rdf-toolkit"]
+	path = dependencies/rdf-toolkit
+	url = https://github.com/edmcouncil/rdf-toolkit.git
+	branch = develop
