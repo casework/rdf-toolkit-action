@@ -1,2 +1,7 @@
 # Build artifacts
 rdf-toolkit.jar
+# Test artifacts
+*.done.log
+*.egg-info
+.venv-pre-commit
+venv
