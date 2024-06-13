@@ -13,6 +13,9 @@ _This documentation assumes you already have `pre-commit` installed in your repo
 
 In your `.pre-commit-config.yaml` file, add the following under the `repos` key:
 
+<!--
+NOTE: When editing this YAML snippet, confirm the version lines up with the contents of setup.cfg.
+-->
 ```yaml
 repos:
 -   repo: https://github.com/kchason/rdf-toolkit-action
@@ -37,7 +40,7 @@ docker run --rm \
 ```
 
 ## Credits
-The `rdf-toolkit.jar` tool is obtained from [https://github.com/trypuz/openfibo](https://github.com/trypuz/openfibo).
+The `rdf-toolkit.jar` tool is obtained from [https://github.com/edmcouncil/rdf-toolkit/](https://github.com/edmcouncil/rdf-toolkit/).
 
 
 ## Licensing
