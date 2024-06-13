@@ -43,3 +43,6 @@ docker run --rm \
 The `rdf-toolkit.jar` tool is obtained from [https://github.com/edmcouncil/rdf-toolkit/](https://github.com/edmcouncil/rdf-toolkit/).
 
 
+## Licensing
+
+Portions of this repository contributed by NIST are governed by the [NIST Software Licensing Statement](THIRD_PARTY_LICENSES.md#nist-software-licensing-statement).
