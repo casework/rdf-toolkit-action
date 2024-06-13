@@ -40,6 +40,6 @@ docker run --rm \
 ```
 
 ## Credits
-The `rdf-toolkit.jar` tool is obtained from [https://github.com/trypuz/openfibo](https://github.com/trypuz/openfibo).
+The `rdf-toolkit.jar` tool is obtained from [https://github.com/edmcouncil/rdf-toolkit/](https://github.com/edmcouncil/rdf-toolkit/).
 
 
