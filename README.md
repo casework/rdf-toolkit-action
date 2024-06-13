@@ -18,7 +18,7 @@ NOTE: When editing this YAML snippet, confirm the version lines up with the cont
 -->
 ```yaml
 repos:
--   repo: https://github.com/kchason/rdf-toolkit-action
+-   repo: https://github.com/casework/rdf-toolkit-action
     rev: 0.3.0
     hooks:
     -   id: rdf-toolkit-normalizer
