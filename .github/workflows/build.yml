@@ -21,12 +21,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Generate Tag Name
-        uses: docker/metadata-action@v5
-        id: meta
-        with:
-          images: kchason/rdf-toolkit-normalizer:${{ github.ref_name }}
-
       - name: Build and Push Latest
         uses: docker/build-push-action@v6
         with:
@@ -37,4 +31,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: kchason/rdf-toolkit-normalizer:${{ github.ref_name }}
