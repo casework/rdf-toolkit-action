@@ -25,7 +25,7 @@ jobs:
         uses: docker/metadata-action@v5
         id: meta
         with:
-          images: kchason/rdf-toolkit-normalizer:${{ github.ref_name }}
+          images: kchason/rdf-toolkit-normalizer
 
       - name: Build and Push Latest
         uses: docker/build-push-action@v6
