@@ -1,5 +1,7 @@
 # RDF Toolkit Action
-<a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>
+<a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
+[![.github/workflows/ci.yml](https://github.com/casework/rdf-toolkit-action/actions/workflows/ci.yml/badge.svg)](https://github.com/casework/rdf-toolkit-action/actions/workflows/ci.yml)
+[![Supply Chain](https://github.com/casework/rdf-toolkit-action/actions/workflows/supply-chain.yml/badge.svg)](https://github.com/casework/rdf-toolkit-action/actions/workflows/supply-chain.yml)
 
 ## Overview
 A GitHub Action, Docker image, and [`pre-commit`](https://pre-commit.com/) hook for normalizing RDF files with `rdf-toolkit.jar`.
