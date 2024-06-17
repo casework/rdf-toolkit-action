@@ -22,7 +22,7 @@ NOTE: When editing this YAML snippet, confirm the version lines up with the cont
 ```yaml
 repos:
 -   repo: https://github.com/casework/rdf-toolkit-action
-    rev: 0.3.0
+    rev: 2.0.2
     hooks:
     -   id: rdf-toolkit-normalizer
         args:
